@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+    body{
+        font-family: "Montserrat", sans-serif;
+    }
+    .navpre{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        align-items: center;
+        padding: 10px 40px;
+        /* display: none; */
+    }
+    #menupre{
+        background-color: beige;
+        height: 100vh;
+        width: 40%;
+        position: absolute;
+        top: 0;
+        display: none;
+        text-transform: uppercase;
+    }
+    .inmenupre{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px 20px;
+        font-family: "Montserrat", sans-serif;
+        font-size: 14px;
+    }
+    .btmpre{
+        border-bottom: 1px solid #6f6d6d;
+    }
+    
+    @media only screen and (max-width: 588px) {
+    #menupre{
+        width: 60%;
+    }
+    }
+    @media only screen and (max-width: 375px) {
+    #menupre{
+        width: 100%;
+    }
+    .navpre{
+        padding: 10px 15px;
+    }
+    }
+    .navbar{
+        text-transform: uppercase;
+        font-family: "Montserrat", sans-serif;
+    }
+    .nav-item a{
+        color: #000;
+    }
+    .navbar-nav{
+        margin: auto;
+        font-size: 14px;
+    }
+    .dropdown-item{
+        font-size: 11px;
+    }
+    .right{
+        position: fixed;
+        left: 90%;
+        top:35%;
+    }
+    .left{
+        position: fixed;
+        right: 90%;
+        top:35%;
+    }
+    .bner{        
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #c4b5b5;
+        height: 70vh;
+        width: 60%;
+    }
+    .bner{
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
+    .formr{
+        margin: 20px;
+    }
+    .forml{
+        background-color: #000;
+    }
+    input{
+        background-color: transparent;
+        /* border: none; */
+        outline: none;
+        border-bottom: 2px solid #000;
+        padding: 10px;
+        width: 100%;
+        margin-top: 15px;
+    }
+    form p{
+        float: right;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+    form p:hover{
+        text-decoration: underline;
+    }
+    input::placeholder{
+        color: #000;
+    }
+    form #submit{
+        width: 100%;
+        padding: 10px;
+    }
+    #log,#sign{
+        background-color: transparent;
+        border: none;
+        padding-bottom: 8px;
+        margin-bottom: 20px;
+    }
+    #log{
+        border-bottom: 2px solid #000;
+    }
+    #signform{
+        display: none;
+    }    
+    @media only screen and (max-width: 925px) {
+        .bner{
+        display: grid;
+        grid-template-columns: 100%;
+        }
+    }
+</style>
+</head>
+<body>
+
+    <div class="navpre">
+        <div class="text-left">
+            <svg aria-hidden="true" id="menu" onclick="hampre()" fill="none" focusable="false" width="24" class="header__nav-icon icon icon-hamburger" viewBox="0 0 24 24">
+            <path d="M1 19h22M1 12h22M1 5h22" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"></path></svg>
+        </div>
+        <div class=" text-center">
+            <img src="logo.png" width="140" alt="">
+        </div>
+        <div class="text-right">
+            <svg aria-hidden="true" fill="none" focusable="false" width="30" class="" viewBox="0 0 24 24">
+            <path d="M10.364 3a7.364 7.364 0 1 0 0 14.727 7.364 7.364 0 0 0 0-14.727Z" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10"></path>
+            <path d="M15.857 15.858 21 21.001" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"></path></svg>
+
+            <svg aria-hidden="true" fill="none" focusable="false" width="30" class="ml-3" viewBox="0 0 24 24">
+                <path d="M4.75 8.25A.75.75 0 0 0 4 9L3 19.125c0 1.418 1.207 2.625 2.625 2.625h12.75c1.418 0 2.625-1.149 2.625-2.566L20 9a.75.75 0 0 0-.75-.75H4.75Zm2.75 0v-1.5a4.5 4.5 0 0 1 4.5-4.5v0a4.5 4.5 0 0 1 4.5 4.5v1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </div>
+    </div>
+
+    <div id="menupre">
+        <div class="inmenupre" >
+            <img src="close.png" id="close" onclick="close()" width="18">
+        </div>
+        <div class="inmenupre btmpre">
+            <div>new arrival</div>
+            <div id="arrow"><img src="arrow.png" width="14"></div>
+        </div>
+        <div class="inmenupre btmpre">                
+            <div>best seller</div>
+            <div id="arrow"><img src="arrow.png" width="14"></div>
+        </div>
+        <div class="inmenupre btmpre">
+            <div>couture</div>
+            <div id="arrow"><img src="arrow.png" width="14"></div>
+        </div>
+        <div class="inmenupre btmpre">
+            <div>best seller</div>
+            <div id="arrow"><img src="arrow.png" width="14"></div>
+        </div>
+        <div class="inmenupre btmpre">Discover</div>
+        <div class="inmenupre btmpre">ready to ship</div>            
+    </div> 
+    
+
+    
+    <nav class="navbar navbar-expand-sm">
+
+        <!-- Links -->
+        <ul class="navbar-nav justify-content-center">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+              new arrival
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">shop all</a>
+              <a class="dropdown-item" href="#">styles</a>
+            </div>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link">
+              best seller
+            </a>
+          </li>
+      
+          <!-- Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+              couture
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">our collection</a>
+              <a class="dropdown-item" href="#">shop by styles</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link pl-3" href="#">ready to ship</a>
+          </li>
+        </ul>
+      </nav>
+
+      <img src="logom.png" width="300" class="right">
+      <img src="logom.png" width="300" class="left">
+
+      <div class="bner">
+        <div class="forml">
+        </div>
+        <div class="formr">
+            <button id="log" onclick="log()" class="text-capitalize">log in</button>
+            <button id="sign" onclick="sign()" class="text-capitalize ml-4">Sign up</button>
+            <form action="#" id="logform">
+                <h6 class="mt-4">Welcome ! Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h6>
+                <input type="text" id="email" name="email" placeholder="Enter you e-mail"><br>
+                <input type="password" id="password" name="password" placeholder="Password"><br><br>
+                <p>Forget Password ?</p>
+                <button type="submit" id="submit">Submit</button>
+            </form> 
+            <form action="#" id="signform">
+                <h6 class="mt-3">Welcome ! Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h6>
+                <input type="text" id="name" name="name" placeholder="Enter your name">
+                <input type="text" id="email" name="email" placeholder="Enter your e-mail">
+                <input type="password" id="password" name="password" placeholder="Password">
+                <p>Forget Password ?</p>
+                <button type="submit" id="submit">Submit</button>
+            </form> 
+
+        </div>
+      </div>
+
+      <script>
+        
+        function log(){
+                document.getElementById('logform').style='display:block;';
+                document.getElementById('signform').style='display:none;';
+                document.getElementById('log').style='border-bottom: 2px solid #000;';
+                document.getElementById('sign').style='border-bottom: none';
+        }
+        function sign(){
+                document.getElementById('signform').style='display:block;';
+                document.getElementById('logform').style='display:none;';
+                document.getElementById('sign').style='border-bottom: 2px solid #000;';
+                document.getElementById('log').style='border-bottom: none';
+        }
+      </script>
+
+</body>
+</html>
